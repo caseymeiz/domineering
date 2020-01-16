@@ -1,6 +1,6 @@
 # Domineering
 
-![screen shot](./Screen Shot.png)
+![screen shot](Screen Shot.png)
 
 
 ## Available Scripts

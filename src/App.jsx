@@ -1,16 +1,16 @@
 import React from 'react';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
-import { ThemeProvider } from '@material-ui/core/styles';
+import { MuiThemeProvider } from '@material-ui/core/styles';
 import { theme } from './theme';
 import Grid from '@material-ui/core/Grid';
 import rootReducer from './reducers/root'
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
-import PositionGrid from './hooks/game/PositionGrid';
 import Latex from './hooks/Latex'
 import Outcome from './hooks/Outcome'
-
+import ToolBar from './hooks/ToolBar';
+import Board from './hooks/board/Board'
 
 const store = createStore(
   rootReducer
@@ -20,7 +20,7 @@ const store = createStore(
 function App() {
 	return (
 		<Provider store={store}>
-			<ThemeProvider theme={theme}>
+			<MuiThemeProvider theme={theme}>
 				<Container maxWidth="lg">
 					<Grid container spacing={3}>
 						<Grid item xs={12}>
@@ -28,10 +28,13 @@ function App() {
 						</Grid>
 
 						<Grid item xs={6}>
-							<PositionGrid></PositionGrid>
+							<Board></Board>
 						</Grid>
 
 						<Grid item xs={6}>
+							<Grid item xs={12}>
+								<ToolBar></ToolBar>
+							</Grid>
 							<Grid item xs={12}>
 								<Outcome></Outcome>
 							</Grid>
@@ -41,7 +44,7 @@ function App() {
 						</Grid>
 					</Grid>
 				</Container>
-			</ThemeProvider>
+			</MuiThemeProvider>
 		</Provider>
 	);
 }

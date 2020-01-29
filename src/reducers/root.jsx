@@ -1,10 +1,26 @@
 import { combineReducers } from 'redux'
-import position from './position/index'
+import { board, squaresHovered} from './board/board'
+import tool from './editor/editor'
+import { vertical, verticalHovered, horizontal, horizontalHovered } from './pieces/pieces'
+
+
+
 
 
 const rootReducer = combineReducers({
-    position
+    board,
+    squaresHovered,
+
+    vertical,
+    verticalHovered,
+
+    horizontal,
+    horizontalHovered,
+
+    tool
 })
+
 
 export default rootReducer;
 
+ 

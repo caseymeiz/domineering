@@ -1,5 +1,7 @@
 # Domineering
 
+Build domineering positions and view their outcome class.
+
 ![screen shot](imgs/ScreenShot.png)
 
 

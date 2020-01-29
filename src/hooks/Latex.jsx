@@ -4,28 +4,28 @@ import { useSelector } from 'react-redux'
 
 export default function Latex() {
 
-    const { position: { isHollow } } = useSelector(state => state)
+    const { board } = useSelector(state => state)
 
     return (
         <div>
             <Typography variant="h5">LaTeX</Typography>
             <pre>
-                {generateLatex(isHollow)}
+                {generateLatex(board)}
             </pre>
         </div>
     )
 }
 
 
-function generateLatex(isHollowMatrix) {
+function generateLatex(board) {
     var latex = []
 
     latex.push("\\begin{tikzpicture}")
 
-    isHollowMatrix.forEach( (isHollowRow, y) => {
-        let reversed = isHollowRow.slice().reverse() // transpose to match tikz 
-        reversed.forEach((isHollow, x) => {
-            if (!isHollow){
+    board.forEach( (row, y) => {
+        let reversed = row.slice().reverse() // transpose to match tikz 
+        reversed.forEach((square, x) => {
+            if (square){
                 latex.push(`\\draw (${x},${y}) -- (${x+1},${y}) -- (${x+1},${y+1}) -- (${x},${y+1}) -- (${x},${y});`)
             }
         })
